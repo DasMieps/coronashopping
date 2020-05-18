@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d4bdf8a9-6b30-4cec-9263-2e9059595db9" name="Coronaversum" url="http://coronashopping20.s1710456018.student.kwmhgb.at/bookstoreServer/public">
+        <fileTransfer host="s1719456018.student.kwmhgb.at" port="222" rootFolder="//usr/home/sstud32/public_html/coronashopping20/bookstoreServer" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="222" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
