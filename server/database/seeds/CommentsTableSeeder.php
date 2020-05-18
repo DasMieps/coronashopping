@@ -12,7 +12,7 @@ class CommentsTableSeeder extends Seeder
     public function run()
     {
         $comment = new \App\Comment;
-        $comment->text = "Hello";
+        $comment->text = "Ich suche jemanden der für mich einkauft!";
 
         $user_id = App\User::all()->first();
         $comment->user()->associate($user_id);
@@ -23,14 +23,14 @@ class CommentsTableSeeder extends Seeder
         $comment->save();
 
         $comment1 = new \App\Comment;
-        $comment1->text = "Hello";
+        $comment1->text = "Hello, ich suche eine/n EinkäuferIn!";
 
         $user_id = App\User::all()->first();
         $comment1->user()->associate($user_id);
         $comment1->save();
 
         $shoppinglist_id = App\Shoppinglist::all()->last();
-        $comment1->shoppinglist()->associate($shoppinglist_id);
+        $comment1->shoppinglist()->associate(2);
         $comment1->save();
 
     }

@@ -5,7 +5,7 @@ import {AuthenticationService} from './shared/authentication.service';
     templateUrl: './app.component.html'
 })
 export class AppComponent {
-    constructor(private authService:AuthenticationService) {
+    constructor(public authService:AuthenticationService) {
     }
     isLoggedIn() {
         return this.authService.isLoggedIn();

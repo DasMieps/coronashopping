@@ -12,8 +12,8 @@ Wert: {{myProperty}} -->
 
 <div class="ui four item tabs menu">
     <a routerLink="home" routerLinkActive="active" class="item">Home</a>
-    <a routerLink="shoppinglists" routerLinkActive="active" class="item">Shoppinglist</a>
-    <a *ngIf= " isLoggedIn()" routerLink= "admin" routerLinkActive= "active" class= "item" >Administration</a>
+    <a routerLink="shoppinglists" routerLinkActive="active" class="item">Einkaufslisten</a>
+    <a *ngIf="isLoggedIn() && authService.getCurrentUserRole() === 'creator'" routerLink= "admin" routerLinkActive= "active" class= "item" >Administration</a>
     <a routerLink= "login" routerLinkActive= "active" class= "item" >{{ getLoginLabel ()}}</a>
 </div>
 

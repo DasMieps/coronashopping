@@ -1,5 +1,3 @@
-<p>hello</p>
-
 <div *ngIf="shoppinglist" class="ui grid">
     <div class="four wide column">
     </div>
@@ -9,60 +7,63 @@
         <div class="ui grid">
 
             <div class="six wide column">
-                <h4 class="ui header">ID</h4>
+                <h4 class="ui header">Einkaufslisten ID</h4>
                 {{ shoppinglist?.id }}
             </div>
             <div class="six wide column">
-                <h4 class="ui header">bis zum Datum</h4>
+                <h4 class="ui header">Fällig bis</h4>
                 {{ shoppinglist?.due_date }}
             </div>
             <div class="six wide column">
-                <h4 class="ui header">Creator ID</h4>
+                <h4 class="ui header">ErstellerIn</h4>
                 {{ shoppinglist?.creator.firstName }} {{ shoppinglist?.creator.lastName }}
             </div>
             <div class="six wide column">
-                <h4 class="ui header">Shopper ID</h4>
-                {{ shoppinglist?.shopper.firstName }} {{ shoppinglist?.shopper.lastName }}
+                <h4 class="ui header">EinkäuferIn</h4>
+                {{ shoppinglist?.shopper?.firstName }} {{ shoppinglist?.shopper?.lastName }}
             </div>
             <div class="six wide column">
                 <h4 class="ui header">Preis</h4>
                 {{ shoppinglist?.actual_price }}
             </div>
-            <div class="six wide column">
-                <h4 class="ui header">Comment</h4>
-                <div *ngFor="let comment of shoppinglist.comments;">{{comment.id}} {{comment.text}} {{comment.user_id}}
-                    {{comment.updated_at}}
+
+            <div class="twelve wide column">
+                <h4 class="ui header">Benötigte Artikel</h4>
+                <div *ngFor="let item of shoppinglist.items; last as l" class="ui grid">
+                    <div class="six wide column"><b>Bezeichnung</b> {{item.name}}</div>
+                    <div class="three wide column"><b>Menge</b> {{item.quantity}}</div>
+                    <div class="three wide column"><b>Maximaler Preis</b> {{item.max_price}}</div>
                 </div>
             </div>
-            <div class="twelve wide column">
-                <h4 class="ui header">Posten</h4>
-                <div *ngFor="let item of shoppinglist.items; last as l">
-                    <span><b>Bezeichnung</b> {{item.name}}</span>
-                    <span><b>Menge</b> {{item.quantity}}</span>
-                    <span><b>Maximaler Preis</b> {{item.max_price}}</span>
+
+            <div class="six wide column">
+                <h4 class="ui header">Kommentare</h4>
+                <div *ngFor="let comment of shoppinglist.comments;">{{comment.text}}
                 </div>
             </div>
 
         </div>
+        <br/>
+
 
     </div>
-
-    <!--<button (click)= "showShoppinglistList()" class= "ui red button">Zurück zur
-    Shoppinglist</button> -->
-
     <button [routerLink]="'/shoppinglists'" class="ui red button">Zurück zur Übersicht</button>
-    <button class="ui tiny red labeled icon button" *ngIf="authService.isLoggedIn()" (click)=" removeShoppinglist()"><i
+    <button class="ui tiny red labeled icon button" *ngIf="authService.isLoggedIn()"
+            (click)=" removeShoppinglist()"><i
             class="remove icon"></i>
         Shoppinglist löschen
     </button>
     <button class="ui tiny yellow labeled icon button"
-            *ngIf="authService.isLoggedIn() && authService.getCurrentUserRole() === 'Shopper'"
-            (click)=" takeShoppinglist()"><i class="remove icon"></i>
+            *ngIf="authService.isLoggedIn() && authService.getCurrentUserRole() === 'shopper'"
+            (click)=" takeShoppinglist()" [routerLink]= "shoppinglist.id"><i class="write icon"></i>
         Shoppinglist übernehmen
     </button>
     <a *ngIf="authService.isLoggedIn()" class="ui tiny yellow labeled icon button"
        [routerLink]="['../../admin', shoppinglist?.id]">
         <i class="write icon"></i> Shoppinglist bearbeiten
     </a>
+    <!--<button (click)= "showShoppinglistList()" class= "ui red button">Zurück zur
+    Shoppinglist</button> -->
+
 
 </div>

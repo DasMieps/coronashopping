@@ -21,7 +21,7 @@ export class ShoppinglistFormComponent implements OnInit {
     comments: FormArray;
 
     constructor(private fb: FormBuilder, private sc: ShoppinglistCoronaService,
-                private route: ActivatedRoute, private authService:AuthenticationService, private router: Router) {
+                private route: ActivatedRoute, public authService:AuthenticationService, private router: Router) {
     }
 
     ngOnInit() {

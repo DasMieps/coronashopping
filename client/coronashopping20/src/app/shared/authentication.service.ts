@@ -20,7 +20,7 @@ export class AuthenticationService {
     }
 
     public getCurrentUserRole(){
-        return String(localStorage.getItem('role'));
+        return String(localStorage.getItem('userRole'));
     }
 
     public setLocalStorage(token:string){
@@ -29,7 +29,6 @@ export class AuthenticationService {
         localStorage.setItem('token', token);
         localStorage.setItem('userId', decodedToken.user.id);
         localStorage.setItem('userRole', decodedToken.user.role);
-
     }
 
     logout() {

@@ -22,7 +22,7 @@ class ItemsTableSeeder extends Seeder
         $item1 = new \App\Item;
         $item1->name = "Apfel";
         $item1->quantity = 6;
-        $item1->max_price = 5.5;
+        $item1->max_price = 5;
         $item1->shoppinglist_id = 1;
 
         $item1->save();
@@ -42,5 +42,21 @@ class ItemsTableSeeder extends Seeder
         $item3->shoppinglist_id = 2;
 
         $item3->save();
+
+        $item4 = new \App\Item;
+        $item4->name = "Bohnen";
+        $item4->quantity = 3;
+        $item4->max_price = 3;
+        $item4->shoppinglist_id = 3;
+
+        $item4->save();
+
+        $item5 = new \App\Item;
+        $item5->name = "Eistee";
+        $item5->quantity = 3;
+        $item5->max_price = 3;
+        $item5->shoppinglist_id = 3;
+
+        $item5->save();
     }
 }
